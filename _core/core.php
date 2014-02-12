@@ -1,11 +1,5 @@
 <?php
 
-if(!isset($root_path))
-{
-	echo '!isset $root_path';
-	exit();
-}
-
 // 這是強迫使用者只能執行在 php5.4 以上
 if (!version_compare(PHP_VERSION, '5.4.0-dev', '>='))
 {
