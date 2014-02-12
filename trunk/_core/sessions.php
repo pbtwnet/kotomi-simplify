@@ -76,6 +76,7 @@ class sessions
 							
 						$this->insert_new_sid($data->user_id, $this->_session_id, $this->_ip, $this->_script_name);
 						$this->_up_keys_last_login($data->key_id);// 更新keys最後登入時間
+						//TODO 在這邊應該要加入 自動登入後也應該要針對該UID的最後登入時間欄位刷新時間
 						$this->_write_data();
 					}
 				} else trigger_error($sql, E_USER_ERROR);
