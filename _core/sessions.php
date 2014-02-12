@@ -65,11 +65,6 @@ class sessions
 					$sth->execute();
 					$count = $sth->rowCount();
 					$data = $sth->fetchObject();
-					if($db->getAttribute(PDO::ATTR_DRIVER_NAME) == 'sqlite')
-					{
-						if($data->user_id == $cookie_uid && $data->key_id == $cookie_kid)
-							$count = 1;
-					}
 					
 					$sth->closeCursor();
 					if($count === 1)
@@ -166,6 +161,7 @@ class sessions
 	
 	/**
 	 * 這個方法用來刪除(釋放)超過一定時間的session
+	 * 釋放的時間取決於 $conf->data['session_length']
 	 * @return void
 	 */
 	public function gc()
