@@ -32,7 +32,11 @@ function get_userdata($user_id)
 	return $data;
 }
 
-
+/**
+ * 
+ * @param unknown $string
+ * @return string
+ */
 function arr_htmlspecialchars($string)
 {
 	if(is_array($string))
@@ -74,11 +78,10 @@ function arr_addslashes($string)
  * @param string $namespace 可選，增加混淆的字串
  * @return string 不含左右大括號的GUID
  */
-function new_guid($namespace = '')
+function new_guid()
 {
 	$guid = '';
 	$uid = uniqid("", true);
-	$data = $namespace;
 	$data .= $_SERVER['REQUEST_TIME'];
 	$data .= $_SERVER['HTTP_USER_AGENT'];
 	$data .= $_SERVER['REMOTE_ADDR'];
