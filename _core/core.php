@@ -67,5 +67,3 @@ unset($dbpasswd);
 $conf = new config;
 $user = new sessions();
 
-
-?>

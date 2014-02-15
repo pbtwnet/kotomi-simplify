@@ -6,5 +6,3 @@ $dbname = 'ks';
 $dbuser = 'root';
 $dbpasswd = '';
 
-
-?>
