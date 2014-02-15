@@ -12,6 +12,7 @@ define('KS_CORE_DIR', substr(strrchr(str_replace("\\", "/", pathinfo(__FILE__, P
 
 // 定義資料表名稱常數，如果需要多個系統同資料庫可以透過更改資料表字首方式達成
 define('T_USERS',			'ks_users');
+define('T_CONFIG',			'ks_config');
 define('T_SESSIONS',		'ks_sessions');
 define('T_SESSIONS_KEYS',	'ks_sessions_keys');
 
@@ -19,11 +20,12 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 
 
-if (file_exists($root_path . KS_CORE_DIR . 'config.php'))
+if (file_exists($root_path . KS_CORE_DIR . 'db.config.php'))
 {
-	require($root_path . KS_CORE_DIR . 'config.php');
+	require($root_path . KS_CORE_DIR . 'db.config.php');
 }
 
+/*****************************************************
 class config
 {
 	var $data = array(
@@ -39,13 +41,15 @@ class config
 		'timezone' 			=> 'Asia/Taipei'
 	);
 }
+******************************************************/
 
 
 
 
 // 載入定義與類別庫
-require_once($root_path . KS_CORE_DIR . 'func.php');
+require_once($root_path . KS_CORE_DIR . 'functions.php');
 require_once($root_path . KS_CORE_DIR . 'ks.php');
+require_once($root_path . KS_CORE_DIR . 'config.php');
 require_once($root_path . KS_CORE_DIR . 'sessions.php');
 
 
