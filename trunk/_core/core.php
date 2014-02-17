@@ -51,7 +51,7 @@ require_once($root_path . KS_CORE_DIR . 'functions.php');
 require_once($root_path . KS_CORE_DIR . 'ks.php');
 require_once($root_path . KS_CORE_DIR . 'config.php');
 require_once($root_path . KS_CORE_DIR . 'sessions.php');
-
+require_once($root_path . KS_CORE_DIR . 'smarty_libs/Smarty.class.php');
 
 $dsn = 'mysql:host=' . $dbhost . ';dbname=' . $dbname;
 $options = [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'];
@@ -66,4 +66,7 @@ try {
 unset($dbpasswd);
 $conf = new config;
 $user = new sessions();
-
+$smarty = new Smarty;
+$smarty->caching = false;
+$smarty->setTemplateDir('././templates/');
+$smarty->setCompileDir('././templates_c/');
