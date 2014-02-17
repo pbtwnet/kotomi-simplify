@@ -31,7 +31,7 @@ if($lout == 1)
 
 <body>
 <?php if($user->data['user_id'] == 1) { ?>
-<div style="background:#0C6">
+<div style="background:#CCC; width:300px">
   <form id="form1" name="form1" method="post" action="">
     登入
       <input name="logon" type="hidden" id="logon" value="1" />
@@ -44,6 +44,7 @@ if($lout == 1)
   <input name="autologon" type="checkbox" id="autologon" value="1" />
   <input type="submit" name="button" id="button" value="送出" />
   </form>
+  <div style="text-align:right">這只是一個用來測試登入的表單</div>
 </div>
 <?php } else { ?>
 您是: <?=$user->data['user_name']?> 
