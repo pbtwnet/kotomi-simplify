@@ -64,6 +64,8 @@ try {
 	exit;
 }
 unset($dbpasswd);
+
+
 $conf = new config;
 $user = new sessions();
 $smarty = new Smarty;
