@@ -2,8 +2,6 @@
 
 $root_path = './';
 include($root_path . '_core/core.php');
-
-
 $user->begin();
 
 $logon = ks::external_var('logon');
@@ -30,7 +28,13 @@ if($lout == 1)
 </head>
 
 <body>
-<?php if($user->data['user_id'] == 1) { ?>
+<p>您現在在執行的是 test_login.php 您可以打開這個檔案來參考如何建構 Kotomi-Simplify 的登入功能</p>
+<p>您目前的身分是: <?=$user->data['user_name']?> SID:<?=$user->data['session_id']?></p>
+<p>現在時間是: <?=$user->date('Y-m-d H:i:s', time())?> 設定的時區<?=$conf->data['timezone']?></p>
+<?php
+//這裡是用來判斷是否已經登入，如果尚未登入他的用戶ID會是1
+if($user->data['user_id'] == 1) { ?>
+
 <div style="background:#CCC; width:300px">
   <form id="form1" name="form1" method="post" action="">
     登入
@@ -44,7 +48,6 @@ if($lout == 1)
   <input name="autologon" type="checkbox" id="autologon" value="1" />
   <input type="submit" name="button" id="button" value="送出" />
   </form>
-  <div style="text-align:right">這只是一個用來測試登入的表單</div>
 </div>
 <?php } else { ?>
 您是: <?=$user->data['user_name']?> 
