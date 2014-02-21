@@ -21,9 +21,33 @@ class sessions
 	
 	private $_guid_pattern = '/^[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}$/'; // 用於驗證GUID的正規表示式
 	
+	/**
+	 * 這個屬性是DateTime物件
+	 */
+	public $datetime;
+	
+	
+	function __construct()
+	{
+		global $conf;
+		$this->datetime = new DateTime(null, new DateTimeZone($conf->data['timezone']));
+	}
 	
 	/**
-	 * 啟動 session 因為本類別是抽象類別，使用這個方法通常是由子類別的來執行
+	 * 這個方法的使用如同php的date
+	 * @param unknown $format 時間格式
+	 * @param unknown $timestamp 時間戳記
+	 */
+	function date($format, $timestamp)
+	{
+		global $conf;
+		$datetime = new DateTime(null, new DateTimeZone($conf->data['timezone']));
+		$datetime->setTimestamp($timestamp);
+		return $datetime->format($format);
+	}
+	
+	/**
+	 * 啟動 session
 	*/
 	public function begin()
 	{
