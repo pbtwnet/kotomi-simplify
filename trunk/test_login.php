@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * 提醒您!!
+ * 這個檔案僅提供一個登入的參考範例，請根據您的使用需求自行撰寫相關的程序
+ * 登入方法 $user->login 登出 $user->logout();
+ */
 $root_path = './';
 include($root_path . '_core/core.php');
 $user->begin();
@@ -14,8 +18,8 @@ if($logon == 1)
 }
 if($lout == 1)
 {
-	header("location: index.php");
 	$user->logout();
+	header("location: test_login.php");
 	exit;
 }
 
@@ -51,7 +55,7 @@ if($user->data['user_id'] == 1) { ?>
 </div>
 <?php } else { ?>
 您是: <?=$user->data['user_name']?> 
-<a href="index.php?lout=1">可以點選這裡登出</a>
+<a href="test_login.php?lout=1">可以點選這裡登出</a>
 <?php } ?>
 </body>
 </html>

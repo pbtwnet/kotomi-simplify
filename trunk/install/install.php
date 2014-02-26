@@ -131,14 +131,6 @@ $(function() {
 
 </script>
 
-<style type="text/css">
-<!--
-body,td,th {
-	font-size: 12px;
-	color: #333;
-}
--->
-</style>
 </head>
 
 <body>
@@ -156,7 +148,7 @@ body,td,th {
 <p>您現在在執行的是 install.php</p>
 <p>這個工具您應該在使用完畢後將整個 install 資料夾刪除</p>
 <form id="form1" name="form1" method="post" action="">
-<table width="900" border="0" align="center" cellpadding="2" cellspacing="1">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1">
   <tr>
     <th colspan="3">資料庫</th>
   </tr>
