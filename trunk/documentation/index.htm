@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Kotomi-Simplify</title>
+<link href="css.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -12,17 +13,24 @@
 <ol>
   <li><a href="#1">如何安裝 Kotomi-Simplify</a></li>
   <li><a href="#2">如何使用 Smarty</a></li>
+  <li><a href="#3">取消使用config資料表，改成於程式中使用固定(寫死)的類別</a></li>
+  <li><a href="#4">關於自動登入與ks_sessions_keys資料表的注意事項</a></li>
 </ol>
 <h3><a name="1" id="1"></a>如何安裝 Kotomi-Simplify</h3>
 <p>將原始包解壓後可得kotomi-simplify的主目錄，但這資料夾並非必要，可以直接僅使用_core這個資料夾，將_core放入你要開發的程式中，然後請執行install/install.php先完成資料庫的連結，然後撰寫一個PHP程式在在開頭處增加以下程式碼</p>
-<blockquote>
-  <p>$root_path = './';<br />
+<code>
+  $root_path = './';<br />
     include($root_path . '_core/core.php');<br />
-    $user-&gt;begin();</p>
-</blockquote>
-<p>完成後就可以嘗試執行，如果你不明白可以參考test_login.php 或 test_smarty.php 內的程式碼，順便一提 這兩個都是做為測試與參考用，可以在安裝完成後刪除</p>
+    $user-&gt;begin();
+</code>
+<p>完成後就可以嘗試執行，如果你不明白可以參考test_login.php 或 test_smarty.php 內的程式碼，順便一提 這兩個都是做為測試與參考用，可以在安裝完成後刪除。</p>
 <h3><a name="2" id="12"></a>如何使用 Smarty</h3>
 <p>將下載回來的 Smarty 解壓後命名為 smarty_libs 放入你的目錄中，然後參考test_smarty.php的範例使用，另外，配置設定Smarty請打開_core/core.php進行設定，包含Smarty的目錄、快取目錄。</p>
-<h3>..</h3>
+<h3><a name="3" id="122"></a>取消使用config資料表，改成於程式中使用固定(寫死)的類別</h3>
+<p>這樣做的目的最主要的是減少不必要的資料庫查詢，也就是說不使用資料表的資料資料，直接將值寫死在程式中，你應該自行考量專案的擴展需求，如果開發小型專案直接用寫死的組態是很方便的，但是如果專案有一定規模，那你將會需要一個彈性自由的組態。</p>
+<p>如果要取消組態資料表，打開你的_core/core.php進行設定，首先將class config的註解取消掉，然後將以下這行註解起來</p>
+<code>require_once($root_path . KS_CORE_DIR . 'config.php');</code>
+<h3><a name="4" id="123"></a>關於自動登入與ks_sessions_keys資料表的注意事項</h3>
+<p>.</p>
 </body>
 </html>
