@@ -25,6 +25,7 @@ if (file_exists($root_path . KS_CORE_DIR . 'db.config.php'))
 	require($root_path . KS_CORE_DIR . 'db.config.php');
 }
 
+// 如果不使用 config 資料表 則使用這個類別
 /*****************************************************
 class config
 {
@@ -49,7 +50,7 @@ class config
 // 載入定義與類別庫
 require_once($root_path . KS_CORE_DIR . 'functions.php');
 require_once($root_path . KS_CORE_DIR . 'ks.php');
-require_once($root_path . KS_CORE_DIR . 'config.php');
+require_once($root_path . KS_CORE_DIR . 'config.php');//如果不使用config資料表請註解掉這個引入
 require_once($root_path . KS_CORE_DIR . 'sessions.php');
 require_once($root_path . 'smarty_libs/Smarty.class.php');
 
@@ -68,7 +69,11 @@ unset($dbpasswd);
 
 $conf = new config;
 $user = new sessions();
-$smarty = new Smarty;
-$smarty->caching = false;
-$smarty->setTemplateDir($root_path . 'templates/');
-$smarty->setCompileDir($root_path . 'templates_c/');
+if (defined('USE_SMARTY'))
+{
+	//您應該先行下載並安裝和設定 Smarty庫 的相對位置與快取檔的存放位置
+	$smarty = new Smarty;
+	$smarty->caching = false;
+	$smarty->setTemplateDir($root_path . 'templates/');
+	$smarty->setCompileDir($root_path . 'templates_c/');
+}
