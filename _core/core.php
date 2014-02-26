@@ -52,7 +52,7 @@ require_once($root_path . KS_CORE_DIR . 'functions.php');
 require_once($root_path . KS_CORE_DIR . 'ks.php');
 require_once($root_path . KS_CORE_DIR . 'config.php');//如果不使用config資料表請註解掉這個引入
 require_once($root_path . KS_CORE_DIR . 'sessions.php');
-require_once($root_path . 'smarty_libs/Smarty.class.php');
+
 
 $dsn = 'mysql:host=' . $dbhost . ';dbname=' . $dbname;
 $options = [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'];
@@ -72,6 +72,7 @@ $user = new sessions();
 if (defined('USE_SMARTY'))
 {
 	//您應該先行下載並安裝和設定 Smarty庫 的相對位置與快取檔的存放位置
+	require_once($root_path . 'smarty_libs/Smarty.class.php');
 	$smarty = new Smarty;
 	$smarty->caching = false;
 	$smarty->setTemplateDir($root_path . 'templates/');
