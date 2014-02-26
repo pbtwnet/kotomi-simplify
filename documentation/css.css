@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+body {
+	background-color: #CCFFFF;
+}
+
+body, td, th {
+	color: #333333;
+}
+
+h1, h2 {
+	color: #000033;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #006699;
+}
+
+a {
+  color: #003366;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+
+code {
+	color: #090;
+	background-color: #FFF;
+	display: block;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	margin: 5px;
+	padding: 10px;
+}
