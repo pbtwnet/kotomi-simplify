@@ -129,8 +129,8 @@ class sessions
 
 	
 	/**
-	 * <p>登入的方法，需要帳號密碼，自動登入的參數是可選</p>
-	 * <p>如果登入成功將返回該用戶的uid如果查詢不正確則返回 0 如果這個帳號沒有被啟用會返回-1</p>
+	 * 登入的方法，需要帳號密碼，自動登入的參數是可選
+	 * 如果登入成功將返回該用戶的uid如果查詢不正確則返回 0 如果這個帳號沒有被啟用會返回-1
 	 * @param name
 	 * @param password
 	 * @param [auto]
@@ -241,6 +241,7 @@ class sessions
 			$sth->bindParam(':session_ip', $ip, PDO::PARAM_STR);
 			$sth->bindParam(':session_page', $page, PDO::PARAM_STR);
 			$sth->execute();
+			$sth->closeCursor();
 		} else trigger_error($sql, E_USER_ERROR);
 
 		return true;
@@ -270,15 +271,16 @@ class sessions
 			$sth->bindParam(':last_login', $this->_time_now, PDO::PARAM_INT);
 			$sth->bindParam(':last_ip', $this->_ip, PDO::PARAM_STR);
 			$sth->execute();
+			$sth->closeCursor();
 		} else trigger_error($sql, E_USER_ERROR);
 	
 		return true;
 	}
 	
 	/**
-	 * <p>依據參數查詢帳號與密碼是否相符(帳號啟用也須開啟 user_enable = 'Y')</p>
-	 * <p>如查詢比對正確將返回該用戶的uid如果查詢不正確則返回 0 如果這個帳號沒有被啟用會返回-1</p>
-	 * <p>這個功能目前仍需改良，因為目前為止這功能的進入參數值都沒有加入任何過濾</p>
+	 * 依據參數查詢帳號與密碼是否相符(帳號啟用也須開啟 user_enable = 'Y')
+	 * 如查詢比對正確將返回該用戶的uid如果查詢不正確則返回 0 如果這個帳號沒有被啟用會返回-1
+	 * 這個功能目前仍需改良，因為目前為止這功能的進入參數值都沒有加入任何過濾
 	 * @param $username 帳號
 	 * @param $password 密碼
 	 * @return int 會員ID
@@ -323,8 +325,8 @@ class sessions
 			trigger_error($sql, E_USER_ERROR);
 	}
 	/**
-	 * <p>刷新指定的sessions_keys</p>
-	 * <p>這個方法僅提供類別內部使用</p>
+	 * 刷新指定的sessions_keys
+	 * 這個方法僅提供類別內部使用
 	 */
 	private function _up_keys_last_login($key_id)
 	{
@@ -356,8 +358,8 @@ class sessions
 		}
 	}
 	/**
-	 * <p>這個方法用於檢驗COOKIE傳回的SID是否符合規定，並且檢查資料表中是否有存在這筆sid</p>
-	 * <p>如果不符合會傳回空字串</p>
+	 * 這個方法用於檢驗COOKIE傳回的SID是否符合規定，並且檢查資料表中是否有存在這筆sid
+	 * 如果不符合會傳回空字串>
 	 */
 	private function _check_sid($check_sid)
 	{
@@ -378,8 +380,8 @@ class sessions
 	}
 	
 	/**
-	 * <p>刷新指定的session</p>
-	 * <p>這個方法僅提供類別內部使用</p>
+	 * 刷新指定的session
+	 * 這個方法僅提供類別內部使用
 	 */
 	private function _updata_session()
 	{
