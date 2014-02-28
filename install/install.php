@@ -5,6 +5,8 @@ $show_form = true;
 $show_msgbox = false;
 $msg = '';
 
+
+
 if($_POST['mode'] == 'test' ||$_POST['mode'] == 'install')
 {
 	$mode		= $_POST['mode'];
@@ -30,10 +32,12 @@ if($_POST['mode'] == 'test' ||$_POST['mode'] == 'install')
 	
 	if($mode == 'test')
 	{
+		
 		if($msg == '')
 		{
 			$msg = '這個設定目前看來應該是正確的 您可以點 <a href="install.php">這裡</a> 返回';
 		}
+		
 	}
 	if($mode == 'install' && $msg == '')
 	{
@@ -106,7 +110,9 @@ if($_POST['mode'] == 'test' ||$_POST['mode'] == 'install')
 <script type="text/javascript" src="jquery-2.1.0.js"></script>
 
 <script type="text/javascript">
+
 $(function() {
+
 	$("#button").click(function() {
 		var db_host = $("#db_host").val();
 		var db_name = $("#db_name").val();
