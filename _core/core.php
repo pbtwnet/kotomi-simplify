@@ -55,7 +55,7 @@ require_once($root_path . KS_CORE_DIR . 'sessions.php');
 
 
 $dsn = 'mysql:host=' . $dbhost . ';dbname=' . $dbname;
-$options = [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'];
+$options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
 
 
 try {

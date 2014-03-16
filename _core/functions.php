@@ -20,7 +20,7 @@ function get_userdata($user_id)
 	$sql = 'SELECT * FROM ' . T_USERS . ' WHERE user_id = ?';
 	if ($sth = $db->prepare($sql))
 	{
-		$sth->execute([intval($user_id)]);
+		$sth->execute(array(intval($user_id)));
 		$data = $sth->fetch();
 		if(count($data) == 0)
 		{
