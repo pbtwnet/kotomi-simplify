@@ -10,7 +10,7 @@
 <p>您可以在這份文件中 Kotomi-Simplify 的相關使用方法</p>
 <h2>索引</h2>
 <ol>
-  <li><a href="#1">如何安裝 Kotomi-Simplify</a></li>
+  <li><a href="#1">如何安裝 Kotomi-Simplify與必須的環境需求</a></li>
   <li><a href="#2">如何使用 Smarty</a></li>
   <li><a href="#3">取消使用config資料表，改成於程式中使用固定(寫死)的類別</a></li>
   <li><a href="#4">關於自動登入與ks_sessions_keys資料表的注意事項</a></li>
@@ -23,6 +23,10 @@
     $user-&gt;begin();
 </code>
 <p>完成後就可以嘗試執行，如果你不明白可以參考test_login.php 或 test_smarty.php 內的程式碼，順便一提 這兩個都是做為測試與參考用，可以在安裝完成後刪除。</p>
+<p>另外，關於程式需要的環境請注意，目前開發的版本需要以下環境</p>
+<ol>
+  <li>PHP5.2以上 且可使用POD(PHP Data Objects)</li>
+</ol>
 <h3><a name="2" id="12"></a>如何使用 Smarty</h3>
 <p>將下載回來的 Smarty 解壓後命名為 smarty_libs 放入你的目錄中，然後參考test_smarty.php的範例使用，另外，配置設定Smarty請打開_core/core.php進行設定，包含Smarty的目錄、快取目錄。</p>
 <h3><a name="3" id="122"></a>取消使用config資料表，改成於程式中使用固定(寫死)的類別</h3>
