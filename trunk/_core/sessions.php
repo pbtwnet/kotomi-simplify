@@ -30,6 +30,7 @@ class sessions
 	function __construct()
 	{
 		global $conf;
+        // 請注意! 這個 DateTime 必須是 (PHP 5 >= 5.2.0)
 		$this->datetime = new DateTime(null, new DateTimeZone($conf->data['timezone']));
 	}
 	
