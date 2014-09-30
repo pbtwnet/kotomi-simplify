@@ -112,7 +112,6 @@ if($_POST['mode'] == 'test' ||$_POST['mode'] == 'install')
 <script type="text/javascript">
 
 $(function() {
-
 	$("#button").click(function() {
 		var db_host = $("#db_host").val();
 		var db_name = $("#db_name").val();
